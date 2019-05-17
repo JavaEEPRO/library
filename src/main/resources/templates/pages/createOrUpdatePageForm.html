@@ -1,0 +1,79 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layoutb :: layoutb (~{::body},'books')}">
+
+<body>
+
+<div id="pageformcontainer">
+<h2  >
+    <th:block th:if="${page['new'] ? 'Update Page' : 'New Page'}">Edit Page</th:block>
+
+</h2>
+<form th:object="${page}" method="post">
+    <input type="hidden" name="id" th:value="*{id}" />
+    <div>
+        <div class="form-group">
+            <label class="label2">- Book:</label>
+            <div>
+                <span th:text="'&quot;' + ${page.book?.title + '&quot; - ' + page.book?.description}" />
+            </div>
+        </div>
+        <br/>
+        <input
+                th:replace="~{fragments/inputField :: input ('Name of page (pattern: \\\\w)', 'name')}" />
+        <br/>
+        <input
+                th:replace="~{fragments/inputField :: input ('When Added (pattern: yyyy-MM-dd)', 'writtenDate')}" />
+        <br/>
+        <input
+                th:replace="~{fragments/selectField :: select ('Page Type', 'pageType', ${pagetypes})}" />
+        <br/>
+    </div>
+    <div class="form-group">
+        <div>
+            <button
+                    th:with="text=${page['new']} ? 'Add Page' : 'Update Page'"
+                    class="btn btn-default" type="submit" th:text="${text}">Add
+                Page</button>
+            <input type="button" onclick="history.back();" value="Resume"/>
+        </div>
+    </div>
+</form>
+
+    <br />
+
+    <h2 >Remarks</h2>
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Remark Date</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tr th:each="remark : ${page.remarks}">
+                        <td th:text="${#calendars.format(remark.date, 'yyyy-MM-dd')}"></td>
+                        <td th:text="${remark?.description}"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+</body>
+</html>

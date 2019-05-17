@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layoutb :: layoutb (~{::body},'books')}">
+
+<body>
+
+<h2>Find Books</h2>
+
+<form th:object="${book}" th:action="@{/books}" method="get">
+    <div>
+        <div id="titleGroup">
+            <label>Title <span class ="explain">(works also when empty)</span></label>
+            <div class="col-sm-10">
+                <input th:field="*{title}" size="40"
+                       maxlength="100" /> <span class="help-inline"><div
+                    th:if="${#fields.hasAnyErrors()}">
+              <p th:each="err : ${#fields.allErrors()}" th:text="${err}">Error</p>
+            </div></span>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div>
+        <div>
+            <button type="submit">Find
+                Book</button>
+        </div>
+    </div>
+
+</form>
+
+<br />
+
+<a th:href="@{/books/unread}">Unread Books</a> <a th:href="@{/books/afterYear}" class="margedLinks">Books Printed After 2017</a> <a th:href="@{/books/new}">Add Another Book</a>
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+</body>
+</html>

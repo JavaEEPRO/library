@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layoutb :: layoutb (~{::body},'books')}">
+
+<body>
+<h2>You've readed book successfully</h2>
+
+<table th:object="${book}">
+    <tr>
+        <th>Title&descript.</th>
+        <td><b th:text="*{title + ' (' + description + ')'}"></b></td>
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td th:text="*{author}" /></td>
+    </tr>
+    <tr>
+        <th>ISBN</th>
+        <td th:text="*{isbn}" /></td>
+    </tr>
+    <tr>
+        <th>Print Year</th>
+        <td th:text="*{printYear}" /></td>
+    </tr>
+    <tr>
+        <th>Read Already</th>
+        <td th:text="*{readAlready}" /></td>
+    </tr>
+</table>
+
+<button th:replace="fragments/menuItem ::menuItem ('/books/','books','return to list','list','Return to list')">
+    <span aria-hidden="true"></span>
+    <span>List of books</span>
+</button>
+
+<br />
+<br />
+<br />
+<h2 >Pages and Remarks</h2>
+
+<table>
+
+    <tr th:each="page : ${book.pages}">
+        <td valign="top">
+            <dl>
+                <dt>Name</dt>
+                <dd th:text="${page.name}" /></dd>
+                <dt>Written Date</dt>
+                <dd
+                        th:text="${#calendars.format(page.writtenDate, 'yyyy-MM-dd')}" /></dd>
+                <dt>Type</dt>
+                <dd th:text="${page.pageType}" /></dd>
+            </dl>
+        </td>
+        <td valign="top">
+            <table>
+                <thead>
+                <tr>
+                    <th>Remark Date</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tr th:each="remark : ${page.remarks}">
+                    <td th:text="${#calendars.format(remark.date, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${remark?.description}"></td>
+                </tr>
+                <tr>
+                    <td><a
+                            th:href="@{{bookId}/pages/{pageId}/edit(bookId=${book.id},pageId=${page.id})}">Edit
+                        Page</a></td>
+                    <td><a
+                            th:href="@{{bookId}/pages/{pageId}/remarks/new(bookId=${book.id},pageId=${page.id})}">Add
+                        Remark To The Page</a></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+</body>
+</html>

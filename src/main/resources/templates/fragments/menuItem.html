@@ -1,0 +1,10 @@
+<html>
+    <body>
+        <button th:fragment="menuItem (path,active,title,glyph,text)" type="hidden" style="z-index: 31; position: relative;" class="active" th:class="${active==menu ? 'active' : ''}">
+            <a th:href="@{__${path}__}" th:title="${title}">
+                <span th:class="'glyphicon  glyphicon-'+${glyph}" aria-hidden="true"></span>
+                <span th:text="${text}">Template</span>
+            </a>
+        </button>
+    </body>
+</html>

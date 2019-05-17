@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutb :: layoutb (~{::body},'home')}">
+
+<body>
+
+<div id="container">
+<h1><a th:text="#{library.welcome}" th:href="@{/task.html}" th:title="'   CLICK TO READ MORE..' + #{title.task}" id="welcometitle" class="streamingradient">Welcome to library</a></h1>
+</div>
+
+<div id="srchcontainer">
+<div class="stage1">
+    <div class="cubespinner">
+        <div class="face1 p1"><a th:href="@{/books/find}">
+            <img class="book labb" title="search"
+                 src="../static/resources/images/book/search3.jpg"
+                 th:src="@{/resources/images/book/search3.jpg}" />
+        </a></div>
+        <div class="face2"><a th:href="@{/books/find}">
+            <img class="book labb" title="search"
+                 src="../static/resources/images/book/search2.jpg"
+                 th:src="@{/resources/images/book/search2.jpg}" />
+        </a></div>
+        <div class="face3 p1"><a th:href="@{/books/find}">
+            <img class="book labb" title="search"
+                 src="../static/resources/images/book/search.jpg"
+                 th:src="@{/resources/images/book/search.jpg}" />
+        </a></div>
+        <div class="face4"><a th:href="@{/books/find}">
+            <img class="book labb" title="search"
+                 src="../static/resources/images/book/search3.jpg"
+                 th:src="@{/resources/images/book/search3.jpg}" />
+        </a></div>
+        <div class="face5 p1"><a th:href="@{/books/find}">
+            <img class="book labb" title="search"
+                 src="../static/resources/images/book/search2.jpg"
+                 th:src="@{/resources/images/book/search2.jpg}" />
+        </a></div>
+        <div class="face6"><a th:href="@{/books/find}">
+            <img class="book labb" title="search"
+                 src="../static/resources/images/book/search.jpg"
+                 th:src="@{/resources/images/book/search.jpg}" />
+        </a></div>
+    </div>
+</div>
+    <a th:href="@{/books/find}" title="find book"><h1 id="srch">Search</h1></a>
+</div>
+
+<div id="listcontainer">
+<div class="stage1">
+    <div class="cubespinner">
+        <div class="face1 p1"><a th:href="@{/books/}">
+            <img class="book labb" title="go to the list"
+                 src="../static/resources/images/book/labirint2.jpg"
+                 th:src="@{/resources/images/book/labirint2.jpg}" />
+        </a></div>
+        <div class="face2"><a th:href="@{/books/}">
+            <img class="book" title="go to the list"
+                 src="../static/resources/images/book/labirint8.png"
+                 th:src="@{/resources/images/book/labirint8.png}" />
+        </a></div>
+        <div class="face3 p1"><a th:href="@{/books/}">
+            <img class="book" title="go to the list"
+                 src="../static/resources/images/book/labirint7.jpg"
+                 th:src="@{/resources/images/book/labirint7.jpg}" />
+        </a></div>
+        <div class="face4"><a th:href="@{/books/}">
+            <img class="book labb" title="go to the list"
+                 src="../static/resources/images/book/labirint2.jpg"
+                 th:src="@{/resources/images/book/labirint2.jpg}" />
+        </a></div>
+        <div class="face5 p1"><a th:href="@{/books/}">
+            <img class="book" title="go to the list"
+                 src="../static/resources/images/book/labirint8.png"
+                 th:src="@{/resources/images/book/labirint8.png}" />
+        </a></div>
+        <div class="face6"><a th:href="@{/books/}">
+            <img class="book" title="go to the list"
+                 src="../static/resources/images/book/labirint7.jpg"
+                 th:src="@{/resources/images/book/labirint7.jpg}" />
+        </a></div>
+    </div>
+</div>
+    <a th:href="@{/books/}" title="list of books"><h1 id="list">List</h1></a>
+</div>
+
+<div id="newcontainer">
+<div class="stage1">
+    <div class="cubespinner">
+        <div class="face1 p1"><a th:href="@{/books/new/}">
+            <img class="book" title="create new book"
+                 src="../static/resources/images/book/book.jpg"
+                 th:src="@{/resources/images/book/book.jpg}" />
+        </a></div>
+        <div class="face2"><a th:href="@{/books/new/}">
+            <img class="book cre" title="create new book"
+                 src="../static/resources/images/book/creatio.jpg"
+                 th:src="@{/resources/images/book/creatio.jpg}" />
+        </a></div>
+        <div class="face3 p1"><a th:href="@{/books/new/}">
+            <img class="book" title="create new book"
+                 src="../static/resources/images/book/book.jpg"
+                 th:src="@{/resources/images/book/book.jpg}" />
+        </a></div>
+        <div class="face4"><a th:href="@{/books/new/}">
+            <img class="book cre" title="create new book"
+                 src="../static/resources/images/book/creatio.jpg"
+                 th:src="@{/resources/images/book/creatio.jpg}" />
+        </a></div>
+        <div class="face5 p1"><a th:href="@{/books/new/}">
+            <img class="book" title="create new book"
+                 src="../static/resources/images/book/book.jpg"
+                 th:src="@{/resources/images/book/book.jpg}" />
+        </a></div>
+        <div class="face6"><a th:href="@{/books/new/}">
+            <img class="book cre" title="create new book"
+                 src="../static/resources/images/book/creatio.jpg"
+                 th:src="@{/resources/images/book/creatio.jpg}" />
+        </a></div>
+    </div>
+</div>
+    <a th:href="@{/books/new/}" title="create new book"><h1 id="new">Create</h1></a>
+</div>
+
+<div class="row">
+    <div>
+        <a th:href="@{/librarian.html}">
+        <img class="ilibrarian" title="click this aries to switch on i-Librarian"
+             src="../static/resources/images/librarian/librarian.jpg"
+             th:src="@{/resources/images/librarian/librarian.jpg}" />
+        </a>
+    </div>
+</div>
+
+<!--<div id="dialog_window_minimized_container"></div>-->
+<div id="dialog_window_1" class="dialog_window" title="USED TECHNOLOGIES:">
+    <h3 th:text="#{spring.core.version}"></h3>
+    <h3 th:text="#{spring.webmvc.version}"></h3>
+    <h3 th:text="#{hibernate.core.version}"></h3>
+    <h3 th:text="#{tomcat.embed.version}"></h3>
+    <p>and others...</p>
+</div>
+
+</body>
+</html>

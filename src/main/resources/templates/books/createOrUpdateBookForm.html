@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layoutb :: layoutb (~{::body},'books')}">
+
+<body>
+
+<h2 th:text="${book['new']} ? 'Create New Book' : 'Update Book'">Book</h2> <p class="explain"> (values for "id" and "readAlready" are set automatically to: AUTOINCREMENT and FALSE after pressing Update or Add)</p>
+<form th:object="${book}" method="post">
+    <div>
+        <input
+                th:replace="~{fragments/inputField :: input ('Title', 'title')}" />
+        <br/>
+        <input
+                th:replace="~{fragments/inputTextField :: inputtext ('Description (255 char max)', 'description')}" />
+        <br/>
+        <input
+                th:replace="~{fragments/specInputField :: input ('Author', 'author')}"/>
+        <br/>
+        <input
+                th:replace="~{fragments/inputField :: input ('ISBN (pattern: \\\\d)', 'isbn')}" />
+        <br/>
+        <input
+                th:replace="~{fragments/inputField :: input ('Print Year (pattern: \\\\d)', 'printYear')}" />
+
+        <br/>
+    </div>
+    <div>
+        <div>
+            <button
+                    th:with="text=${book['new']} ? 'Add Book' : 'Update Book'"
+                    type="submit" th:text="${text}">Add
+                Book</button>
+            <input type="button" onclick="history.back();" value="Resume"/>
+        </div>
+    </div>
+</form>
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+</body>
+</html>

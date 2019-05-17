@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layoutb :: layoutb (~{::body},'comment')}">
+
+<body>
+
+<h2 class="feedbackheader">Feedback</h2>
+
+<br/><br/>
+<br/><br/>
+
+
+<a class="feedbacklinks" href="http://www.facebook.com/messsenjer">leave message at facebook</a>
+<br/><br/>
+<a class="feedbacklinks" href="http://www.vk.com/vortecz">leave message at vk</a>
+
+<a th:href="@{/crash}">
+<img class="ilibrarian" title="click to test exception handler"
+     src="../static/resources/images/librarian/librarian.jpg"
+     th:src="@{/resources/images/comment/comment.jpg}" />
+</a>
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+</body>
+</html>

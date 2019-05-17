@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layoutb :: layoutb (~{::body},'about')}">
+
+<body>
+
+<h3 class="taskheader">This project was presented as solvation of Java Rush Test Task 2018 (winter)</h3>
+<br/>
+
+<div id="sprint">
+<p class="p1">future improvements: </p>
+<br/>
+<p class="p1">controller refactoring (processFindForm, processFindUnread and processFindAfterYear)</p>
+<p class="p1"></p>
+</div>
+
+<div class="container">
+<div id="slides">
+    <img src="../static/resources/images/about/1-min.jpg"
+         th:src="@{/resources/images/about/1-min.jpg}" />
+    <img src="../static/resources/images/about/2-min.jpg"
+         th:src="@{/resources/images/about/2-min.jpg}" />
+    <img src="../static/resources/images/about/4-min.jpg"
+         th:src="@{/resources/images/about/5-min.jpg}" />
+    <img src="../static/resources/images/about/3-min.jpg"
+         th:src="@{/resources/images/about/3-min.jpg}" />
+    <img src="../static/resources/images/about/4-min.jpg"
+         th:src="@{/resources/images/about/4-min.jpg}" />
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layoutb :: layoutb (~{::body},'task')}">
+
+<body>
+
+<h2 class="taskheader">Original Task</h2>
+
+<iframe id="task"
+        th:src="@{/resources/textcontent/task.pdf}"
+        frameborder="0"
+>task</iframe>
+</body>
+</html>

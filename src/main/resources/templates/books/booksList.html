@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layoutb :: layoutb (~{::body},'books')}">
+
+<body>
+
+<h2>Books</h2>
+
+<!--page controlls-->
+<div class="pagingcontrolls">
+    <div th:if="${selections.totalPages != 1}">
+        <table class="pagination">
+            <tr>
+                <td th:class="${selections.number == 0} ? disabled">
+                    <a class="pageLink" th:href="@{/books/(pageSize=${selectedPageSize}, page=1)}" style="text-decoration:none"><button>&laquo;</button></a>
+                </td>
+                <td th:class="${selections.number == 0} ? disabled">
+                    <a class="pageLink" th:href="@{/books/(pageSize=${selectedPageSize}, page=${selections.number})}" style="text-decoration:none"><button>&larr;</button></a>
+                    <a th:class="pageLink" th:href="@{/books/(pageSize=${selectedPageSize})}"></a>
+                </td>
+                <td th:class="${selections.number == (page - 1)} ? 'active pointer-disabled'"
+                    th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
+                    <a class="pageLink" th:href="@{/books/(pageSize=${selectedPageSize}, page=${page})}" style="text-decoration:none"
+                       th:text="${page}"  th:class="${selections.number == (page - 1)} ? 'current'"></a>
+                </td>
+                <td th:class="${selections.number + 1 == selections.totalPages} ? disabled">
+                    <a class="pageLink"
+                       th:href="@{/books/(pageSize=${selectedPageSize}, page=${selections.number + 2})}" style="text-decoration:none"><button>&rarr;</button></a>
+                </td>
+                <td th:class="${selections.number + 1 == selections.totalPages} ? disabled">
+                    <a class="pageLink"
+                       th:href="@{/books/(pageSize=${selectedPageSize}, page=${selections.totalPages})}" style="text-decoration:none"><button>&raquo;</button></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+
+<table  id="books">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th align="left">Title</th>
+        <th style="width: 200px;">Description(quote)</th>
+        <th>Author</th>
+        <th style="width: 120px">ISBN</th>
+        <th>PrintYear</th>
+        <th>ReadAlready</th>
+        <th class="other">Pages</th>
+        <th class="controls">to read</th>
+        <th class="controls">to update</th>
+        <th class="controls">to remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${selections}">
+        <td th:text="${book.id}"/>
+        <td>
+            <a th:href="@{/books/__${book.id}__}" th:text="${book.title}"/></a>
+        </td>
+        <td th:text="${book.description}"/>
+        <td th:text="${book.author}" align="center"/>
+        <td th:text="${book.isbn}" align="center"/>
+        <td th:text="${book.printYear}" align="center"/>
+        <td style="transform:scale(2); text-align: center; vertical-align: middle;" align="center"><input type="checkbox" class="itemcb" disabled="disabled" th:checked="${book.readAlready}"/></td>
+
+        <!--th:text="${book['pages'] == null} ? 'Create Page' : 'Open Page'-->
+
+        <td align="center"><span th:each="page : ${book.pages}"><span><a th:href="@{/books/__${book.id}__/pages/__${page.id}__/edit}" style="z-index: 26; position: relative;"><span th:text="${page.name}"></span></a> </span></span></td>
+        <td align="center"> <a th:href="@{/books/__${book.id}__/read}" th:text="'Read ' + ${book.title}" style="z-index: 25; position: relative;"/></a> </td>
+
+        <td align="center"><a th:href="@{{id}/edit(id=${book.id})}" th:text="'Update ' + ${book.title}"></a></td>
+
+        <td align="center"> <a th:href="@{/books/__${book.id}__/delete}" th:text="Delete"/></a> </td>
+    </tr>
+    </tbody>
+</table>
+
+<!--page controlls-->
+<div class="pagingcontrolls">
+    <!--<div class="form-group col-md-1">
+        <select class="form-control pagination" id="pageSizeSelect" title = "books per page">
+            <option th:each="pageSize : ${pageSizes}" th:text="${pageSize}" th:value="${pageSize}"
+                    th:selected="${pageSize} == ${selectedPageSize}"></option>
+        </select>
+    </div>-->
+    <div th:if="${selections.totalPages != 1}">
+        <table class="pagination">
+            <tr>
+            <td th:class="${selections.number == 0} ? disabled">
+                <a class="pageLink" th:href="@{/books/(pageSize=${selectedPageSize}, page=1)}" style="text-decoration:none"><button>&laquo;</button></a>
+            </td>
+            <td th:class="${selections.number == 0} ? disabled">
+                <a class="pageLink" th:href="@{/books/(pageSize=${selectedPageSize}, page=${selections.number})}" style="text-decoration:none"><button>&larr;</button></a>
+                <a th:class="pageLink" th:href="@{/books/(pageSize=${selectedPageSize})}"></a>
+            </td>
+            <td th:class="${selections.number == (page - 1)} ? 'active pointer-disabled'"
+                th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
+                <a class="pageLink" th:href="@{/books/(pageSize=${selectedPageSize}, page=${page})}" style="text-decoration:none"
+                   th:text="${page}" th:class="${selections.number == (page - 1)} ? 'current'"></a>
+            </td>
+            <td th:class="${selections.number + 1 == selections.totalPages} ? disabled">
+                <a class="pageLink"
+                   th:href="@{/books/(pageSize=${selectedPageSize}, page=${selections.number + 2})}" style="text-decoration:none"><button>&rarr;</button></a>
+            </td>
+            <td th:class="${selections.number + 1 == selections.totalPages} ? disabled">
+                <a class="pageLink"
+                   th:href="@{/books/(pageSize=${selectedPageSize}, page=${selections.totalPages})}" style="text-decoration:none"><button>&raquo;</button></a>
+            </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+<script th:src="@{/resources/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/resources/js/script.js}"></script>
+
+</body>
+</html>

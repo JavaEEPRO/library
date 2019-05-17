@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layoutb :: layoutb (~{::body},'books')}">
+
+<body>
+<h2>Book Successfully Removed </h2>
+
+<br/><br/>
+<br/><br/>
+
+<button th:replace="fragments/menuItem ::menuItem ('/books/','books','return to list','list','Return to list')">
+    <span aria-hidden="true"></span>
+    <span>List of books</span>
+</button>
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+</body>
+</html>

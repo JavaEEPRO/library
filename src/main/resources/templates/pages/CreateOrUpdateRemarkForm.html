@@ -1,0 +1,65 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layoutb :: layoutb (~{::body},'books')}">
+
+<body>
+
+<h2>
+    <th:block th:if="${remark['new']} ? 'Create New' : 'Update'">New </th:block>
+    Remark
+</h2>
+
+<b style="font-size: xx-small"> - Page</b>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Written Date</th>
+        <th>Page Type</th>
+        <th>Book</th>
+    </tr>
+    </thead>
+    <tr>
+        <td th:text="${page.name}" /></td>
+        <td
+                th:text="${#calendars.format(page.writtenDate, 'yyyy-MM-dd')}" /></td>
+        <td th:text="${page.pageType}" /></td>
+        <td
+                th:text="' &quot;' + ${page.book?.title + '&quot;  (' + page.book?.description} + ')'" /></td>
+    </tr>
+</table>
+
+<form th:object="${remark}" method="post">
+    <div>
+        <br/>
+        <input
+                th:replace="~{fragments/inputField :: input ('Date (pattern: yyyy-MM-dd)', 'date')}" />
+        <br/>
+        <input
+                th:replace="~{fragments/inputTextField :: inputtext ('Description', 'description')}" />
+    </div>
+    <br/>
+
+    <div>
+        <div>
+            <input type="hidden" name="pageId" th:value="${page.id}" />
+            <button type="submit">Add Remark</button>
+            <input type="button" onclick="history.back();" value="Resume"/>
+        </div>
+    </div>
+</form>
+
+<br />
+<b>Previous Remarks</b>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Description</th>
+    </tr>
+    <tr th:if="${!remark['new']}" th:each="remark : ${page.remarks}">
+        <td th:text="${#calendars.format(remark.date, 'yyyy-MM-dd')}" /></td>
+        <td th:text=" ${remark.description}" /></td>
+    </tr>
+</table>
+
+</body>
+</html>

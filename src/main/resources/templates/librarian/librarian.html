@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layoutb :: layoutb (~{::body},'librarian')}">
+
+<body>
+
+<h2 class="librarianheader">Librarian</h2>
+
+<br/><br/>
+<p class="ilib">I am quite simply librarian, </p>
+<p class="ilib">and can only recommend you one most readable book: </p>
+
+<br/><br/>
+
+            <a id="thebook" th:href="@{/book/recommended}">Go To The Book</a>
+
+
+<a th:href="@{/oups}">
+    <img class="ilibrarian" title="click to test exception handler"
+         src="../static/resources/images/librarian/librarian3.jpg"
+         th:src="@{/resources/images/librarian/__${suf}__}" />
+</a>
+
+</body>
+</html>

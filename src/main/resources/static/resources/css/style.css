@@ -1,0 +1,401 @@
+html {
+    max-width: 99%;
+    min-width: 450px;
+}
+
+*{
+    transition: 0.2s;
+}
+
+.ilibrarian {
+    transition: 3s;
+    position: absolute;
+    height: 303px;
+    width: 303px;
+    margin: 25px;
+    border: 1px solid orangered;
+    border-radius:4px;
+    right:0.1%; top: 11%;
+}
+.ilibrarian:hover{
+    transition: 3s;
+    transform:scale(1.1);
+}
+
+.streamingradient {
+    transition: 3s;
+    color:darkorchid;
+}
+.streamingradient:after {
+    transition: 3s;
+    content: "";
+    position: absolute; top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)) no-repeat 100% 0%;
+    background-size: 100% 100%;
+    color: orangered;
+}
+.streamingradient:hover:after {
+    transition: 12s linear;
+    background-size: 0 100%;
+}
+.streamingradient:hover {
+    transition: 3s;
+    transform: scale(1.2);
+}
+
+#pageformcontainer {
+    position: fixed;
+    right: 17%;
+    top: 40px;
+}
+#container {
+    right: 1px;
+    position: relative;
+    transform: scale(1.25) scaleX(0.78);
+    max-width: 90%;
+}
+
+.label2 {
+    font-size: smaller;
+}
+
+.explain {
+    color: grey;
+}
+
+tbody tr:nth-child(odd) {
+    color: #231d2b;
+}
+tbody tr:nth-child(even) {
+    color: darkmagenta;
+}
+
+.readspan {
+
+}
+
+    /*styles for librarian.html*/
+.librarianheader {
+}
+#thebook{
+    position: fixed;
+    left:200px;
+    transform: scale(3);
+}
+
+    /*styles for task.html*/
+.taskheader {
+    position: fixed;
+    margin: 50px auto;
+    top:100px;
+    z-index: 20;
+}
+#task {
+    position: fixed;
+    top: 50px;
+    right: 25%;
+    width:675px;
+    height:435px;
+}
+
+    /*styles for comment.html*/
+.feedbacklinks {
+    position: fixed;
+    left:150px;
+    transform: scale(2);
+}
+
+.ilib {
+    font-size: xx-large;
+    color: #7e7783;
+}
+
+.other {
+    color: red;
+}
+.controls {
+    color: #585858;
+}
+
+.bigbutton {
+    height:50px;
+    widtg:200px;
+}
+
+#sprint {
+    position: absolute;
+    top: 300px;
+}
+.p1 {
+    /*transform: translateY(100px);*/
+}
+
+/*paging styles*/
+.pagination-centered {
+    text-align: center;
+}
+.pagination-centered .active {
+    color: red;
+}
+
+.current {
+    color:red;
+}
+
+/*experimental sub class*/
+
+.slidesjs-navigation {
+    margin: 5px;
+}
+
+.noLink {
+    pointer-events: none;
+    /*display: none;*/
+    color: #aaaaaa;
+}
+.margedLinks {
+    margin: 15px;
+}
+
+.row {
+    left:25%;
+    width:100%;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.pointer-disabled {
+    pointer-events: none;
+}
+
+#dialog_window_2 {
+    positin:fixed;
+}
+#footer {
+    transition: 3s;
+    transform:scale(0.93);
+    position: fixed;
+    margin: 33px;
+    margin-bottom: 10px;
+    bottom: 5px;
+    height: 207px;
+    width: 94%;
+    opacity: 0.75;
+    z-index: -1;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+#footer:hover{
+    transition: 3s;
+    transform:scale(0.938);
+    opacity:0.82;
+}
+#cross {
+    /*background-color: #0a0a0a;*/
+    background-image: url("#{resource['static/resources/images/cross/redcross.png']}");
+    width:25px;
+    height: 25px;
+    position:fixed;
+    bottom: 197px;
+    right: 5.4%;
+    z-index: 55;
+    border: 1px solid grey;
+    border-radius: 3px;
+    opacity:0.45;
+}
+#cross:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+#cr {
+    position:relative;
+    /*transform: scale(0.7);*/
+    width: 25px;
+    height: 25px;
+}
+
+.help-inline {
+    color: red;
+}
+
+
+
+
+
+.stage1{                                   /*сцена вращения*/
+    width: 120px; height: 120px;
+}
+
+@keyframes spincube {
+    from,to {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    16% {
+        transform: rotateY(-90deg);
+    }
+    33% {
+        transform: rotateY(-90deg) rotateZ(90deg);
+    }
+    50% {
+        transform: rotateY(-180deg) rotateZ(90deg);
+    }
+    66% {
+        transform: rotateY(-270deg) rotateX(90deg);
+    }
+    83% {
+        transform: rotateX(90deg);
+    }
+}
+
+.cubespinner {
+    animation-name: spincube;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 12s;
+    transform-style: preserve-3d;
+    transform-origin: 41px 41px 0;
+}
+
+.cubespinner div {
+    position: absolute;
+    width: 82px;
+    height: 82px;
+    border: 1px solid #8ECBDE;
+    border-radius: 3px;
+    /*background: rgba(255,255,255,0.6);*/
+    /* background:url("../images/logo1.jpg") no-repeat center;*/                    /* -  uncomment this to run LOGO IMG  */
+    background-size: cover;
+    box-shadow: inset 0 0 20px #8ECBDE;
+    /*line-height: 82px;*/
+    text-align: center;
+    /*font-size: 9px;*/
+    color:deeppink;
+    opacity:0.8;
+    font: 600 0.7em/2 comic sans ms, verdana, sans serif;
+
+    text-shadow: 1px 1px 1px white,
+    -1px -1px 1px black;
+
+}
+
+.cubespinner div>text{
+
+}
+
+
+.p1{
+    font-size:13px;
+    color:red;
+}
+.cubespinner .face1 {
+    transform: translateZ(41px);
+}
+
+.cubespinner .face2 {
+    transform: rotateY(90deg) translateZ(41px);
+}
+
+.cubespinner .face3 {
+    transform: rotateY(90deg) rotateX(90deg) translateZ(41px);
+}
+
+.cubespinner .face4 {
+    transform: rotateY(180deg) rotateZ(90deg) translateZ(41px);
+}
+
+.cubespinner .face5 {
+    transform: rotateY(-90deg) rotateZ(90deg) translateZ(41px);
+}
+
+.cubespinner .face6 {
+    transform: rotateX(-90deg) translateZ(41px);
+}
+
+.cubespinner:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused; /* останавливаем анимацию */
+    cursor:pointer;
+}
+
+
+.book {
+    width:83px;
+    height:82px;
+    border-radius: 4px;
+}
+.cre {
+    opacity:0.6;
+}
+
+.labb {
+    opacity:0.6;
+}
+
+#srchcontainer {
+    display: flex;
+    width:250px;
+    height:120px;
+    flex-direction: row;
+}
+#srch {
+    left: 200px;
+}
+
+#listcontainer {
+    display: flex;
+    width:250px;
+    height:120px;
+    flex-direction: row;
+}
+#list {
+    left: 200px;
+}
+
+#newcontainer {
+    display: flex;
+    width:250px;
+    height:120px;
+    flex-direction: row;
+}
+#new {
+    left: 200px;
+}
+
+
+
+/*styles for slider*/
+
+#slides {
+    transition: none !important;
+    position:fixed;
+    right:100px;
+    width:550px;
+    height:350px;
+}
+
+/* Center the slideshow */
+.container {
+    right:100px;
+   /* position: absolute;*/
+    margin: 0 auto;
+   /* width:500px;
+    height:250px;*/
+}
+
+/* Show active item in the pagination */
+.slidesjs-pagination .active {
+    color:red;
+}
+
+.slidesjs-pagination {
+    /*transform: translateY(-200px) translateX(500px);*/
+    position: fixed;
+    top:100px;
+    right:40px;
+}
+
