@@ -261,7 +261,7 @@ class BookController {
         }
     }
 
-            @GetMapping("/books/{bookId}/edit")
+    @GetMapping("/books/{bookId}/edit")
     public String initUpdateBookForm(@PathVariable("bookId") int bookId, Model model) {
         Book book = this.books.findById(bookId);
 
@@ -327,7 +327,7 @@ class BookController {
         Book book = new Book();
         book.setId(421);
         book.setTitle("Gospel according to John");
-        book.setDescription(" And I have declared unto them thy name, and will declare [it]: that the love wherewith thou hast loved me may be in them, and I in them");
+        book.setDescription(" And I have declared unto them thy name, and will declare [it]: that the love wherewith thou hast loved Me may be in them, and I in them");
         book.setAuthor("Holy Ghost");
         book.setIsbn(143992);
         book.setPrintYear(2002);
